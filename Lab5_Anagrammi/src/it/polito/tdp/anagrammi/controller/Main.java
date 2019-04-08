@@ -1,5 +1,7 @@
 package it.polito.tdp.anagrammi.controller;
 	
+
+import it.polito.tdp.anagrammi.model.Model;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -14,8 +16,10 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("Anagrammi.fxml")) ;
 			BorderPane root = (BorderPane)loader.load();
 		
+			AnagrammiController controller = loader.getController();
 			Scene scene = new Scene(root,400,400);
-			primaryStage.setScene(scene);
+			primaryStage.setScene(scene);scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Model model = new Model();
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
